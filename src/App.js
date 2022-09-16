@@ -1,24 +1,40 @@
 import logo from './logo.svg';
 import './App.css';
 
+import React, {useState,useEffect} from 'react';
+
+
+import SignUp from './components/SignUp'
+import {BrowserRouter as Router, Route, Routes} from 'react-router-dom'
+import {onSnapshot, collection} from 'firebase/firestore'
+import Admin from './components/Admin';
+import Editpage from './components/Editpage';
+import AddHotel from './components/AddHotel';
+import ForgotPassword from './components/forgotPassword';
+
+import {db} from './config/firebase';
+
+import{getDocs} from 'firebase/firestore'
+import Signin from './components/SignIn';
+
 function App() {
+
+  
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+
+    <Router>
+    <Routes>
+        <Route  path='/admin' element={<Admin />}></Route>
+        <Route exact path='/' element={<Signin />}></Route>
+        <Route  path='/signup' element={<SignUp />}></Route>
+        <Route path='/forgot' element={<ForgotPassword />}></Route>
+       
+        <Route  path='/addHotel' element={<AddHotel />}></Route>
+        <Route  path='/edit/:id' element={<Editpage/>}></Route>
+        
+
+    </Routes>
+</Router>
   );
 }
 

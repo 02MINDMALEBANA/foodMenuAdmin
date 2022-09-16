@@ -1,0 +1,67 @@
+
+#sign{
+    display: flex;
+    background-image: url('../mediaContent/sign.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    width: 100%;
+    height: 100%;
+
+}
+.signForm{
+    margin-top: 350px;
+    margin-bottom: 350px;
+    align-items: center;
+    margin-left: auto;
+    margin-right: auto;
+    /* margin-top: 10%;
+    margin-bottom: 100%; */
+    background-color: #c1a7a799;
+    /* opacity: 0.2; */
+    border: solid 10px #F6D8D8;
+    width: 663px;
+    height: 758px;
+    border-radius: 40px;
+}
+#ppp{
+    /* font-size: var(--font-size-1); */
+    font-size: xx-large;
+    font-family: var(--font-family-inter);
+    font-style: italic;
+    font-weight: 600;
+    min-height: 33px;
+    width: 424px;
+    text-align: center;
+    margin-left: 100px;
+    margin-top: 30px;
+
+}
+#myinputs{
+    margin-top: 30px;
+    margin-left: 120px;
+    padding-left: 30px;
+
+    align-items: center;
+    border-radius: 20px;
+    height: 44px;
+    width: 385px;
+    background-color: white;
+    font-size: 19px;
+    
+}
+button{
+    background-color: #D4C2C2;
+    height: 54px;
+    width: 181px;
+    margin-left: 200px;
+    margin-top: 30px;
+}
+
+label > img {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    margin-left: 40%;
+   
+    
+}

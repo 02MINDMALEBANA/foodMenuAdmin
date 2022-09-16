@@ -1,0 +1,93 @@
+/* .loginDiv{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    height: 100vh;
+}
+
+.form{
+    margin-top: 50%;
+    margin-left: auto;
+    margin-right: auto;
+}
+.picture{
+ 
+    background-image: url('https://m.economictimes.com/thumb/msid-89465809,width-1254,height-836,resizemode-4,imgsize-28786/indian-hotels.jpg');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+}
+input{
+    padding:5%;
+}
+.login{
+    margin-top: 350px;
+    margin-bottom: 350px;
+    align-items: center;
+    margin-left: auto;
+    margin-right: auto;
+    /* margin-top: 10%;
+    margin-bottom: 100%; */
+   /* background-color: #9897c7fd;*/
+    /* opacity: 0.2; */
+   /* border: solid 10px #13012b;
+    width: 663px;
+    height: 758px;
+    border-radius: 40px;
+} */
+
+
+#log{
+    display: flex;
+    background-image: url('../mediaContent/unnamed.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    width: 100%;
+    height: 100%;
+}
+#loginform{
+    font-size: xx-large;
+    font-family: var(--font-family-inter);
+    font-style: italic;
+    font-weight: 600;
+    min-height: 33px;
+    width: 424px;
+    text-align: center;
+    margin-left: 100px;
+    margin-top: 30px;
+    background-color: #c1a7a799;
+    
+}
+#myinputs{
+    margin-top: 30px;
+    margin-left: 120px;
+    padding-left: 30px;
+
+    align-items: center;
+    border-radius: 20px;
+    height: 44px;
+    width: 385px;
+    background-color: white;
+    font-size: 19px;
+    
+}
+.login{
+    margin-top: 350px;
+    margin-bottom: 350px;
+    align-items: center;
+    margin-left: 80%;
+    margin-right: auto;
+    /* margin-top: 10%;
+    margin-bottom: 100%; */
+    background-color: #c1a7a799;
+    /* opacity: 0.2; */
+    border: solid 10px #F6D8D8;
+    width: 663px;
+    height: 758px;
+    border-radius: 40px;
+}
+#btn{
+    height: 69px;
+    width: 95px;
+    background-color: white;
+    border-radius: 20px;
+}
