@@ -9,7 +9,7 @@ import {BrowserRouter as Router, Route, Routes} from 'react-router-dom'
 import {onSnapshot, collection} from 'firebase/firestore'
 import Admin from './components/Admin';
 import Editpage from './components/Editpage';
-import AddHotel from './components/AddHotel';
+import AddMenu from './components/AddMenu';
 import ForgotPassword from './components/forgotPassword';
 
 import {db} from './config/firebase';
@@ -29,7 +29,7 @@ function App() {
         <Route  path='/signup' element={<SignUp />}></Route>
         <Route path='/forgot' element={<ForgotPassword />}></Route>
        
-        <Route  path='/addHotel' element={<AddHotel />}></Route>
+        <Route  path='/addmenu' element={<AddMenu />}></Route>
         <Route  path='/edit/:id' element={<Editpage/>}></Route>
         
 

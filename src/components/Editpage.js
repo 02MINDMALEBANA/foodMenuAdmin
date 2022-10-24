@@ -10,7 +10,7 @@ import { useLocation, useNavigate } from "react-router-dom";
 
 import { makeStyles } from '@material-ui/core/styles';
 
-import '../components/AddHotel.css'
+import '../components/AddMenu'
 import { addDoc, collection, doc, getDoc, updateDoc } from 'firebase/firestore';
 import { useParams } from 'react-router-dom';
 import { async } from '@firebase/util';
@@ -48,7 +48,7 @@ const Editpage = () => {
 
     //fuction to get single doc
     const getDocDetails = async(id)=>{
-        const docref = doc(db,'hotels',id)
+        const docref = doc(db,'menus',id)
         try{
             const docSnap = await getDoc(docref);
              if(docSnap.exists()){
@@ -65,17 +65,17 @@ const Editpage = () => {
 
     //updateButton
     const update = async(id,_name)=>{
-        const hotelDoc = doc(db,'hotels',id)
+        const menuDoc = doc(db,'menus',id)
 
-        const hotel ={
+        const menu ={
             name: _name,
-            location:_location,
+            category:_category,
             description:_descrip,
             price:_price
     
         }
 
-        await updateDoc(hotelDoc,hotel).then(()=>{
+        await updateDoc(menuDoc,menu).then(()=>{
             alert('updated successfully')
         }).catch(err=>{
             console.log(err)
@@ -89,7 +89,7 @@ const Editpage = () => {
     },[])
 
             const [_name, setName] = useState("")
-           const [_location, setLocation] = useState("")
+           const [_category, setCategory] = useState("")
            const [_descrip, setDescrip] = useState("")
             const [_price, setPrice] = useState("")
           const classes = useStyles();
@@ -102,7 +102,7 @@ const Editpage = () => {
                           
                         </IconButton>
                         <Typography variant="h6" className={classes.title}>
-                          Edit Hotel
+                          Edit Menu
                         </Typography>
                         <Button className={classes.addButton} variant="contained" color="primary">
                             
@@ -116,7 +116,7 @@ const Editpage = () => {
 
                     {/* <TextField id="outlined-basic" label={details.name} variant="standard" onChange={(e)=>setName(e.target.value)} /><br></br> */}
                     <TextField id="outlined-basic" Value={details._name} label="name" variant="standard" onChange={(e)=>setName(e.target.value)}  /><br></br>
-                    <TextField id="outlined-basic" value={details._location} label="location" variant="standard" onChange={(e)=>setLocation(e.target.value)}  /><br></br>
+                    <TextField id="outlined-basic" value={details._category} label="category" variant="standard" onChange={(e)=>setCategory(e.target.value)}  /><br></br>
                     <TextField id="outlined-basic" value={details._descrip} label="description" variant="standard" onChange={(e)=>setDescrip(e.target.value)} /><br></br>
                     <TextField id="outlined-basic" value={_price} label="Amount" variant="standard" onChange={(e)=>setPrice(e.target.value)}  /><br></br>
                     {/* <TextField id="outlined-basic" value={details._price} label="Amount" variant="standard" onChange={(e)=>{setPrice(details => ({ ...details, _price: e.target.value})  )}}  /><br></br> */}

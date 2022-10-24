@@ -18,13 +18,13 @@ import {getStorage} from 'firebase/storage'
 //   measurementId: "G-4M21KW83ZP"
 // };
 const firebaseConfig = {
-  apiKey: "AIzaSyCGZJRgvvv4J-VUp8NTj7rfzhm5MpSHPHk",
-  authDomain: "hotel-booking-bb1ce.firebaseapp.com",
-  projectId: "hotel-booking-bb1ce",
-  storageBucket: "hotel-booking-bb1ce.appspot.com",
-  messagingSenderId: "642064984379",
-  appId: "1:642064984379:web:a9ae124ece51bfcd3b2f1e",
-  measurementId: "G-4M21KW83ZP"
+  apiKey: "AIzaSyAOnVDl78L8QGrzcgNbkvYTQvo3UbK__jU",
+  authDomain: "restaurantadmin-7e1b8.firebaseapp.com",
+  projectId: "restaurantadmin-7e1b8",
+  storageBucket: "restaurantadmin-7e1b8.appspot.com",
+  messagingSenderId: "800212711492",
+  appId: "1:800212711492:web:21a58e737959f23dade411",
+  measurementId: "G-NWTJGPMVPY"
 };
 
 

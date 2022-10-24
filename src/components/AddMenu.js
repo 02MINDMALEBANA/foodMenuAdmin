@@ -13,7 +13,7 @@ import { useLocation, useNavigate } from "react-router-dom";
 
 import { makeStyles } from '@material-ui/core/styles';
 
-import '../components/AddHotel.css'
+import '../components/AddMenu.css'
 import { addDoc, collection } from 'firebase/firestore';
 import logos from '../components/logo192.png'
 import KeyboardBackspaceSharpIcon from '@mui/icons-material/KeyboardBackspaceSharp';
@@ -47,14 +47,14 @@ const useStyles = makeStyles((theme) => ({
   }));
 
 //function
-const AddHotel = () => {
+const AddMenu = () => {
 
 const navigate = useNavigate()
 const [_name, setName] = useState("")
-const [_location, setLocation] = useState("")
+const [_category, setCategory] = useState("")
 const [_descrip, setDescrip] = useState("")
-const [_price, setPrice] = useState("")
-const [_availableRooms, setAvailableRooms] = useState("")
+const [_price, setPrice] = useState('')
+
 const [_picture, setPicture] = useState("")
 const [percent, setPercent] = useState(0);
 
@@ -67,7 +67,7 @@ const [percent, setPercent] = useState(0);
 
 // const addHotelRef = collection(db,'hotels')
 //function to add hotel
-const addHotel = () =>{
+const addMenu= () =>{
   /////
     //adding picture to firebase
     if (!_picture) {
@@ -93,16 +93,16 @@ const addHotel = () =>{
                       // download url
             getDownloadURL(uploadTask.snapshot.ref).then((url) => {
               console.log(url);
-              const addHotelRef = collection(db, 'hotels')
-              const hotel = {
+              const addMenuRef = collection(db, 'menus')
+              const menu = {
                 name: _name,
-                location: _location,
+                category: _category,
                 description: _descrip,
                 price: _price,
-                room: _availableRooms,
+                
                 picture: url
               };
-              addDoc(addHotelRef, hotel).then(() => {
+              addDoc(addMenuRef, menu).then(() => {
                 console.log('added')
                 alert('added successfully')
                 navigate("/admin")
@@ -164,7 +164,7 @@ const addHotel = () =>{
                           
                         </IconButton>
                         <Typography variant="h6" className={classes.title}>
-                          Add Hotel
+                          Add Menu
                         </Typography>
                         {/* <Button className={classes.addButton} variant="contained" color="primary">
                             
@@ -177,10 +177,10 @@ const addHotel = () =>{
                 <form className={classes.root} noValidate autoComplete="off">
 
                     < TextField id="outlined-basic" label="name" variant="standard" onChange={(e)=>setName(e.target.value)} /><br></br>
-                    <TextField id="outlined-basic" label="location" variant="standard" onChange={(e)=>setLocation(e.target.value)}  /><br></br>
+                    <TextField id="outlined-basic" label="category" variant="standard" onChange={(e)=>setCategory(e.target.value)}  /><br></br>
                     <TextField id="outlined-basic" label="description" variant="standard" onChange={(e)=>setDescrip(e.target.value)} /><br></br>
-                    <TextField id="outlined-basic" label="Price" variant="standard" onChange={(e)=>setPrice(e.target.value)}  /><br></br>
-                    <TextField id="outlined-basic" label="Available rooms" variant="standard" onChange={(e)=>setAvailableRooms(e.target.value)}/><br></br>
+                    <TextField id="outlined-basic" label="Price" variant="standard" onChange={(e)=>setPrice(e.target.value)} type="number" /><br></br>
+                   <br></br>
               {/* <label for="mypic">
                 <img src={logos} id="img"/>
               </label> */}
@@ -188,7 +188,7 @@ const addHotel = () =>{
               <input type="file" accept="image/*" onChange={handleChange}/><br></br>
               <p>{percent} "% done"</p><br></br>
      
-              <Button onClick={(e)=>{addHotel()}} className={classes.but}  variant="contained" color="primary">
+              <Button onClick={(e)=>{addMenu()}} className={classes.but}  variant="contained" color="primary">
 
                     ADD
                 </Button>
@@ -202,4 +202,4 @@ const addHotel = () =>{
     );
 }
 
-export default AddHotel;
+export default AddMenu;

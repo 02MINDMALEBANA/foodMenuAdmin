@@ -92,31 +92,31 @@ const useStyles = makeStyles((theme) => ({
 
 //function starts here
 const Admin = () => {
-  const [hotels, setHotels] = useState([])
+  const [menus, setMenus] = useState([])
     const classes = useStyles();
 
-    const hotelRef = collection(db, 'hotels')
+    const menuRef = collection(db, 'menus')
 
-    const getHotels = async () =>{
-          const data =  await getDocs(hotelRef)
+    const getMenus = async () =>{
+          const data =  await getDocs(menuRef)
          
          
           console.log( data.docs.map((results)=>(results.data())))
-          setHotels( data.docs.map((results)=>({...results.data(), id:results.id})))
+          setMenus( data.docs.map((results)=>({...results.data(), id:results.id})))
     }
 
     useEffect(()=>{
       
 
-      getHotels()
+      getMenus()
            
     },[])
      
      //delete fuction
-     function deleteHotel(id){
+     function deleteMenu(id){
           alert('delete clicked ',{id})
 
-          const getDoc = doc(db,'hotels',id)
+          const getDoc = doc(db,'menus',id)
           deleteDoc(getDoc).then(()=>{
             alert('deledted successfully')
           }).catch(err=>{
@@ -146,7 +146,7 @@ const Admin = () => {
                           Admin
                         </Typography>
                         <Button className={classes.addButton} variant="contained" color="primary" startIcon={<AddIcon />}>
-                            <Link className='naming' to='/addHotel'>ADD HOTELS</Link>
+                            <Link className='naming' to='/addmenu'>ADD MENU</Link>
                         </Button>
                     </Toolbar>
                 </AppBar>
@@ -155,12 +155,12 @@ const Admin = () => {
 
            <div>
            <div className='tasks'>
-            <div><h2 style={{textAlign:"center", marginLeft:'-1%'}}>HOTELS</h2></div>
+            <div><h2 style={{textAlign:"center", marginLeft:'-1%'}}>Menu</h2></div>
             <div className='line'></div>
              
 
              {
-              hotels.length ==0 ? (
+              menus.length ==0 ? (
 
                 
                 <Box sx={{ display: 'flex' }}>
@@ -177,20 +177,20 @@ const Admin = () => {
               ):(
            
                 
-                hotels.map((res)=>(
+                menus.map((res)=>(
                 
                   
                   <>
                   {/* <h1>{  if (hotels == ''){} } no hotels</h1> */}
                    <Card className={classes.displayCard}>
             <div><h3 style={{color:'white'}}>Name: {res.name}</h3></div>
-            <div><h3 style={{color:'white'}}> Location: {res.location}</h3></div>
+            <div><h3 style={{color:'white'}}> Category: {res.category}</h3></div>
             <div><h3 style={{color:'white'}}>Description: {res.description}</h3></div>
             <div><h3 style={{color:'white'}}>Price: R{res.price}</h3></div>
             <div><h3 style={{color:'white'}}><img src={res.picture}/></h3></div>
             <div>{res.picture}</div>
             <div className='buttons' >
-              <div>    <Button onClick={(e)=>{deleteHotel(res.id)}} variant="outlined" color="primary" startIcon={<DeleteIcon />} className={classes.deleteButton}>
+              <div>    <Button onClick={(e)=>{deleteMenu(res.id)}} variant="outlined" color="primary" startIcon={<DeleteIcon />} className={classes.deleteButton}>
                 DELETE
               </Button></div>
                        
